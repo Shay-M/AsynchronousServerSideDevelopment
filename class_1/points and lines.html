@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Ex1: points and lines</title>
+  <h1>points and lines</h1>
+  <script src="Point.js"></script>
+  <script src="Line.js"></script>
+</head>
+
+<body>
+  <script>
+    let p1 = new Point(1, 1);
+    let p2 = new Point(2, 2);
+    document.writeln("p1: " + p1);
+    document.writeln("<br/>p2: " + p2);
+
+    let line = new Line(p1, p2);
+    document.writeln("<br/>line: " + line);
+    document.writeln("<br/>");
+
+
+    p1 = new Point(3, 3);
+    p2 = new Point(7, 7);
+    document.writeln("<br/>p1: " + p1);
+    document.writeln("<br/>p2: " + p2);
+
+    let line2 = new Line(p1, p2);
+    document.writeln("<br/>line: " + line2);
+    console.log("line.toString(): ", line.toString());
+    document.writeln("<br/>");
+
+    document.writeln("<br/>parallelled? " + Line.isParallelled(line, line2));
+
+    console.log(`parallelled? ${Line.isParallelled(line, line2)}`);
+
+  </script>
+</body>
+
+</html>
