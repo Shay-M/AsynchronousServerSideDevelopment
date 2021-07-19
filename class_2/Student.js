@@ -1,24 +1,42 @@
-/*You should develop a new library that includes a function that takes an array of strings 
-(each string describes a specific student, and each string includes - 
-in this order - the id, name, and average - and the separator character is ,)
-and returns an array of objects instantiated from Student, a class you should define
-accordingly. You should use the map function (Array.prototype.map). 
-If the structure of a specific string is not the expected, an exception should be thrown. 
-The library should include the definition for a class that describes the exception.*/
-
 class Student {
     constructor(id, name, average) {
-        this.id = id;
+        if (Number.isNaN(id))
+            this.id = id;
+        else
+            throw new ExceptionOfStudent(`id: ' ${id} '  is not a Number! it is a ${typeof (id)}`);
+
         this.name = name;
         this.average = average;
+    }
+
+
+    toString() {
+        return ` [ ${this.id} | ${this.name} | ${this.average} ] `;
+    }
+
+    //The from() method returns an Array object from any object with a length property or any iterable object.
+    static from(StringOfStudent) {
+
+        let ConvertToStudent = new Student(...StringOfStudent.split(","));
+
+        return ConvertToStudent
 
     }
 
-    static from(string) {
-        string.split(",")
-        let oneStudent = new Student();
+    static fromArrayOfStringStudent(ArrayOfStringStudent) {
 
+        for (let i = 0; i < ArrayOfStringStudent.length; i++) {
+            ArrayOfStringStudent[i] = ArrayOfStringStudent[i].toString();
+            // Student.validateStudentDataString(ArrayOfStringStudent[i]);
+        }
 
+        return ArrayOfStringStudent.map(student => Student.from(student));
     }
 
 }
+
+class ExceptionOfStudent {
+    constructor(msg) { this.msg = msg; }
+
+}
+
