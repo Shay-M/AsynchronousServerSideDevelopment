@@ -15,20 +15,21 @@
 <body>
     <script>
         let ArrayOfStudentsStrings = []
-        ArrayOfStudentsStrings.push("sh,Roi,100");
+        ArrayOfStudentsStrings.push("123,Roi,100");
         ArrayOfStudentsStrings.push("12223,Ham,99");
         ArrayOfStudentsStrings.push("12223,Shay,100");
-        // document.writeln("students: " + students);
+
+        //print all the StudentsStrings in ArrayOfStudentsStrings
+        for (i = 0; i < ArrayOfStudentsStrings.length; i++)
+            document.writeln((i + 1) + ": " + ArrayOfStudentsStrings[i].replaceAll(",", " , ") + "<br/>");
 
         let ArrayOfStudents = Student.fromArrayOfStringStudent(ArrayOfStudentsStrings);
 
-        // let student = new Student("12223,shay,100");
 
         console.log(`ArrayOfStudents: ${ArrayOfStudents}`);
 
-        //students.map(student => Student.from(student));
 
-        //Array map() :Return a new array with the square root of all the original values:
+
 
 
 
