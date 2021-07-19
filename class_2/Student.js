@@ -16,15 +16,14 @@ class Student {
         else
             throw new ExceptionOfStudent(`average: ' ${id} '  is not a Number! it is a ${typeof (id)}`);
 
-        if (EXTRA != 0) {
-            throw new ExceptionOfStudent(`Illegal string format for student. Should be: name,id,average. The surplus: ${EXTRA}`);
-        }
+        if (EXTRA != 0)
+            throw new ExceptionOfStudent(`Illegal string format for student! Should be: ' name,id,average '. The surplus: ${EXTRA}`);
 
     }
 
 
     toString() {
-        return ` [ ${this.id} | ${this.name} | ${this.average} ] `;
+        return "<br/>" + ` [ Id: ${this.id} | Name: ${this.name} | Average: ${this.average} ] `;
     }
 
     //The from() method returns an Array object from any object with a length property or any iterable object.
