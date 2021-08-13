@@ -7,6 +7,7 @@ http
         //get query
         var queryObject = url.parse(req.url, true).query;
         res.end('<h1>BMI: ' +
-            (queryObject.user_weight / queryObject.user_height * queryObject.user_height) * 10000 + '</h1>');
+            (queryObject.user_weight / (queryObject.user_height * queryObject.user_height) * 10000)
+            + '</h1>');
     })
     .listen(1300);
