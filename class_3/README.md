@@ -21,24 +21,24 @@ http
   .listen(process.env.PORT);
 ```
 
-- function (req, res)
+- **function (req, res)**
 
-An object representing a function (Receiving 2 variables: 'req' and 'res') _in fact it is a Design Pattern._
+An object representing a function (Receiving 2 variables: 'req' and 'res') _in fact it is a Design Pattern!_
 
-- res.writeHead(200,
+- **res.writeHead(200,**
 
 List of HTTP status codes: https://en.wikipedia.org/wiki/List_of_HTTP_status_codes
 
-- {'ContentTypes':'text/plain'})
+- **{'ContentTypes':'text/plain'})**
 
-References to Objects ,Mime Types Specification: is a standard(תקן) that indicates the nature and format of a document, file, or assortment of bytes.
+References to Objects ,Mime Types Specification: is a standard that indicates the nature and format of a document, file, or assortment of bytes.
 
-- res.end('Hello World from Cloud9\n')
+- **res.end('Hello World from Cloud9\n')**
 
 Here they sent a text to finish
 
-- .listen(
+- **.listen(**
 
 now http server start (whit for req)
 
-- process.env.PORT
+- **process.env.PORT**
