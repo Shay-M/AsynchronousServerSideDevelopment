@@ -1,19 +1,12 @@
 var http = require("http");
+var url = require('url');
+
 http
     .createServer(function (req, res) {
-        res.writeHead(200, { ContentTypes: "text/plain" });
-        res.end("Hello World!\n");
+        res.writeHead(200, { 'ContentTypes': 'text/html' });
+        //get query
+        var queryObject = url.parse(req.url, true).query;
+        res.end('<h1>BMI: ' +
+            (queryObject.user_weight / queryObject.user_height * queryObject.user_height) * 10000 + '</h1>');
     })
     .listen(1300);
-
-
-
-var http = require('http');
-var url = require('url');
-http.createServer(function (req, res) {
-    //var area = req.query.width * req.query.height;
-    res.writeHead(200, { 'Content-Type': 'text/plain' });
-    var queryObject = url.parse(req.url, true).query;
-    res.end('area is ' +
-        (queryObject.width * queryObject.height));
-}).listen(process.env.PORT);
