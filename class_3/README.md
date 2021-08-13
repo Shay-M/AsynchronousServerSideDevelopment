@@ -16,9 +16,9 @@ var http = require("http");
 http
   .createServer(function (req, res) {
     res.writeHead(200, { ContentTypes: "text/plain" });
-    res.end("Hello World from Cloud9\n");
+    res.end("Hello World\n");
   })
-  .listen(process.env.PORT);
+  .listen(1000);
 ```
 
 - **function (req, res)**
@@ -37,8 +37,6 @@ References to Objects ,Mime Types Specification: is a standard that indicates th
 
 Here they sent a text to finish
 
-- **.listen(**
+- **.listen(1000)**
 
 now http server start (whit for req)
-
-- **process.env.PORT**
