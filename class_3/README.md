@@ -11,11 +11,15 @@ You should develop the server side using Node.js and update your HTML file accor
 HTTP headers let the client and the server pass additional information with an HTTP request or response. An HTTP header consists of its case-insensitive name followed by a colon (:), then by its value. Whitespace before the value is ignored.
 https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers
 
-var http = require('http');
-http.createServer(function (req, res) {
-res.writeHead(200, {'ContentTypes':'text/plain'});
-res.end('Hello World from Cloud9\n');
-}).listen(process.env.PORT);
+```javascript
+var http = require("http");
+http
+  .createServer(function (req, res) {
+    res.writeHead(200, { ContentTypes: "text/plain" });
+    res.end("Hello World from Cloud9\n");
+  })
+  .listen(process.env.PORT);
+```
 
 - function (req, res)
 
