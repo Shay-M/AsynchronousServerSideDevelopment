@@ -65,11 +65,23 @@ http
 
 # <form action="">
 
-**The 'action' Attribute** Adding the 'action' attribute into the <form> starting tag
+**The 'action' Attribute:** Adding the 'action' attribute into the <form> starting tag
 we can specify the URL address of the server side
 application that will be called when the form is submitted.
 All values filled within the form will be sent at that URL address.
 
-**The 'method' Attribute** Adding the 'method' attribute into the <form> starting tag
+**The 'method' Attribute:** Adding the 'method' attribute into the <form> starting tag
 we can specify the HTTP protocol to be used when the form
 is submitted and all entered data sent.
+
+- method="post"
+  Appends form-data into the URL in name/value pairs
+  The length of a URL **is limited** (about 3000 characters)
+  Never use GET to send sensitive data! (will be visible in the URL)
+  Useful for form submissions where a user wants to bookmark the result
+  GET is better for non-secure data, like query strings in Google
+
+- method="get"
+  Appends form-data inside the body of the HTTP request (data is not shown in URL)
+  Has no size limitations
+  Form submissions with POST cannot be bookmarked
