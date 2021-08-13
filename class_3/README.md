@@ -60,3 +60,16 @@ http
   })
   .listen(1000);
 ```
+
+---
+
+# <form action="">
+
+**The 'action' Attribute** Adding the 'action' attribute into the <form> starting tag
+we can specify the URL address of the server side
+application that will be called when the form is submitted.
+All values filled within the form will be sent at that URL address.
+
+**The 'method' Attribute** Adding the 'method' attribute into the <form> starting tag
+we can specify the HTTP protocol to be used when the form
+is submitted and all entered data sent.
