@@ -103,6 +103,8 @@ recursive function doesn't need the stack, the JavaScript
 engine will optimize the recursive function by turning its code
 into a simple loop. */
 
+/* -----//? Since the variables in the previous function layer are not used ---- */
+
 function factorial(number, accumulator = 1) {
     "use strict"; //!<- saving only one layer
     if (number <= 1) return accumulator;
@@ -110,7 +112,34 @@ function factorial(number, accumulator = 1) {
 }
 document.write(factorial(100));
 
-/* ----- Since the variables in the previous function layer are not used ---- */
+
+
+/* -------------------------------------------------------------------------- */
+/*                                  Closures                                  */
+/* -------------------------------------------------------------------------- */
+/* 
+-Closure is the combination of a function bundled together
+(enclosed) with reference to its surrounding state (the lexical
+environment).
+- In JavaScript, we create a closure whenever we define a
+function. When we define a function within another function
+then the inner function will hold a reference to the local
+variables of the outer one as well as to all the global variables. */
+
+/* -----//? function inside function ---- */
+
+var get_functions = function () {
+    var i = 0;
+    var vec = new Array();
+    while (i < 4) {
+        vec[i] = function () { return i * 10; }; //!< the i will stay at 40 when return
+        i++;
+    }
+    return vec;
+};
+var vector = get_functions();
+alert((vector[0]() + vector[1]() + vector[2]() + vector[3]())); //! 40 + 40 + 40 + 40 = 160
+
 
 
 

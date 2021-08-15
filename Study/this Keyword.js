@@ -24,3 +24,26 @@ const movie = {
 }
 movie.showTags();
 
+
+
+/////////////////////////////////
+
+/* 
+- Using 'this' within a method called on a specific object 'this' points at
+  the object on which the method was called.
+- Using 'this' within a global function 'this' points at the Window object.
+-//! Using 'this' within the scope of a closure points at the Window object as well. */
+
+var name = "Moshico";
+var func = function () {
+    var name = "George";
+    var f2 = function () {
+        name: "Jane";
+        var f1 = function () {
+            return this.name; //<<
+        };
+        return f1();
+    };
+    return f2();
+};
+alert(func()); //! Moshico
