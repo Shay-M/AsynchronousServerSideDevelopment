@@ -14,19 +14,13 @@
     <!-- <script src="this Keyword.js"></script> -->
     <script>
 
-        var name = "Moshico";
-        var func = function () {
-            var name = "George";
-            var f2 = function () {
-                name: "Jane";
-                var f1 = function () {
-                    return this.name; //<<
-                };
-                return f1();
-            };
-            return f2();
-        };
-        alert(func());
+        var startTime = new Date();
+        setTimeout(function () {
+            document.write("time passed is " +
+                (new Date() - startTime) + " ms");
+        }, 500);
+        while (new Date() - startTime < 3000) { };
+
     </script>
 
 </head>
