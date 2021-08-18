@@ -40,7 +40,7 @@ var func = function () {
     var f2 = function () {
         name: "Jane";
         var f1 = function () {
-            return this.name; //<<
+            return this.name; //<< //! Moshico
         };
         return f1();
     };
