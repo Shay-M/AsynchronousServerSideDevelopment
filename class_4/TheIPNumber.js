@@ -1,3 +1,7 @@
+/* The os module provides us with system-related utility
+methods we can use for accessing the operating system
+layer.  */
+
 const os = require('os');
 
 // Network interfaces
