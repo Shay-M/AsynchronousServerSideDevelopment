@@ -103,3 +103,21 @@ attributes.
 When having data coming as a stream, instead of storing
 that data in separated small documents we better pack
 these small documents into bigger ones.
+
+### The Computed Pattern
+
+When having the need in a repeatedly calculation of data in
+our application, and when most of the interaction with the
+database is for reading data (not writing) then we might
+improve the performance by writing the result of the
+repeated calculation to our database, and retrieve it when
+needed.
+
+### The Document Versioning
+
+When each and every document doesn't have too many
+revisions, there aren't too many documents to version, and
+most of the queries require the most current version of the
+document, it would be best having one collection for storing
+the most up-to-date version of the document, and a
+separated collection for storing the document revisions.
