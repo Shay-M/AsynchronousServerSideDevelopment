@@ -34,16 +34,16 @@ movie.showTags();
 - Using 'this' within a global function 'this' points at the Window object.
 -//! Using 'this' within the scope of a closure points at the Window object as well. */
 
-var name = "Moshico";
-var func = function () {
-    var name = "George";
-    var f2 = function () {
+let name = "Moshico";
+let func = function () {
+    let name = "George";
+    let f2 = function () {
         name: "Jane";
-        var f1 = function () {
+        let f1 = function () {
             return this.name; //<< //! Moshico
         };
         return f1();
     };
     return f2();
 };
-alert(func()); //! Moshico
+console.log(func()); //! Moshico

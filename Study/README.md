@@ -1,5 +1,7 @@
 # MongoDB Design Patterns
 
+https://www.mongodb.com/blog/post/building-with-patterns-a-summary
+
 ## The Approximation Pattern
 
 _When the accuracy of the data is not really necessary, Do not update every time, update once in a while. to reduce the load_
@@ -100,11 +102,15 @@ attributes.
 
 ### The Bucket Pattern
 
+_when we have a lot of data, (waze), instead of loading the DB, we will take the entire information package from all the devices and pack into one_
+
 When having data coming as a stream, instead of storing
 that data in separated small documents we better pack
 these small documents into bigger ones.
 
 ### The Computed Pattern
+
+_When there is a calculation of information and there is a recurrence, to facilitate the processor we will create an information table with the results_
 
 When having the need in a repeatedly calculation of data in
 our application, and when most of the interaction with the
@@ -114,6 +120,8 @@ repeated calculation to our database, and retrieve it when
 needed.
 
 ### The Document Versioning
+
+_That it is necessary to track a version of documents_
 
 When each and every document doesn't have too many
 revisions, there aren't too many documents to version, and
