@@ -1,6 +1,7 @@
 {
     "recommendations": [
         "sburg.vscode-javascript-booster",
-        "maurodesouza.vscode-simple-readme"
+        "maurodesouza.vscode-simple-readme",
+        "yzhang.markdown-all-in-one"
     ]
 }
