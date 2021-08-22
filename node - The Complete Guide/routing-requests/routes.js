@@ -44,18 +44,22 @@ const requestHandler = (req, res) => {
     res.end();
 };
 
-// for import in app.js [const routes = require('./routes')}]
+// module.exports for import in app.js [const routes = require('./routes')}]
+
 //* Standard version 
 // module.exports = requestHandler; 
 
-//*  this version in cases having multi exports
-module.exports = {
-    handler: requestHandler, // holds the function
-    someText: 'Some hard coded text'
-};
-
+// *if we need  multi exports
 // module.exports.handler = requestHandler;
 // module.exports.someText = 'Some text';
 
-// exports.handler = requestHandler;
-// exports.someText = 'Some hard coded text';
+// *or like this:
+/* module.exports = {
+    handler: requestHandler, // holds the function
+    someText: 'Some hard coded text'
+};
+ */
+
+// *shorter way
+exports.handler = requestHandler;
+exports.someText = 'Some hard coded text';
