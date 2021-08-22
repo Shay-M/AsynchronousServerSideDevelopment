@@ -12,9 +12,21 @@ const server = http.createServer((req, res) => {
         res.write('</html>');
         return res.end(); // stop here and do not continue
     }
+    /* ---------------------------------- POST ---------------------------------- */
 
     if (url === '/message' && method === 'POST') {
-        fs.writeFileSync('message.txt', 'Nothing interesting here');// creat a text
+        const body = [];
+        req.on('data', (chunk) => {  // get the req data using 'on'//! add listener to data event
+            console.log(chunk);
+            body.push(chunk);//todo
+        });
+        req.on('end', () => {
+            const parseBody = Buffer.concat(body).toString();
+            console.log(parseBody);
+            const message = parseBody.split('=')[1]; //message=text
+            fs.writeFileSync('message.txt', message);// creat a text
+        });
+
         res.statusCode = 302; // or use res.writeHead(302, {'Location', '/'});
         res.setHeader('Location', '/');
         return res.end();
