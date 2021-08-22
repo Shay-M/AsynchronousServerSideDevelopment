@@ -2,7 +2,7 @@ var http = require("http");
 var url = require('url');
 
 http
-    .createServer(function (req, res) {
+    .createServer(function (req, res) { //  .createServer (req, res) => {
         res.writeHead(200, { 'ContentTypes': 'text/html' });
         //get query
         var queryObject = url.parse(req.url, true).query;
