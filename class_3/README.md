@@ -31,7 +31,7 @@ List of HTTP status codes: https://en.wikipedia.org/wiki/List_of_HTTP_status_cod
 
 - **{'ContentTypes':'text/plain'})**
 
-References to Objects ,Mime Types Specification: is a standard that indicates the nature and format of a document, file, or assortment of bytes.
+References to Objects ,Mine Types Specification: is a standard that indicates the nature and format of a document, file, or assortment of bytes.
 
 - **res.end('Hello World from Cloud9\n')**
 
@@ -83,6 +83,9 @@ is submitted and all entered data sent.
   - GET is better for non-secure data, like query strings in Google
 
 - method="post"
+
   - Appends form-data inside the body of the HTTP request (data is not shown in URL)
   - Has no size limitations
   - Form submissions with POST cannot be bookmarked
+
+https://www.freecodecamp.org/news/learn-node-js-with-brigadier-fluffykins-part-iii-request-object-configure-routes-serve-files-7666f783dc10/
