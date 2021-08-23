@@ -23,7 +23,7 @@ const requestHandler = (req, res) => {
         return req.on('end', () => {// add a end listener
             const parseBody = Buffer.concat(body).toString();
             console.log(parseBody);
-            const message = parseBody.split('=')[1]; // message = same_text >> 'key' = string
+            const message = parseBody.split('=')[1]; // message = same_text >> 'key'[0] = string[1]
 
             //! fs.writeFileSync('message.txt', message); // creat a text if use 'writeFileSync' it will block running
             fs.writeFile('message.txt', message, (err) => { // finish creat file
