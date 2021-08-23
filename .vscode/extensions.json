@@ -3,6 +3,8 @@
         "sburg.vscode-javascript-booster",
         "maurodesouza.vscode-simple-readme",
         "yzhang.markdown-all-in-one",
-        "eg2.vscode-npm-script"
+        "eg2.vscode-npm-script",
+        "quicktype.quicktype",
+        "zainchen.json"
     ]
 }
