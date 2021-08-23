@@ -1,3 +1,6 @@
+// npm init to create json files
+/* ------------------------------------ / ----------------------------------- */
+
 const http = require('http');
 
 const routes = require('./routes');
