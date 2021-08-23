@@ -1,4 +1,5 @@
 // npm init to create json files
+//npm install nodemon --save-dev// https://www.npmjs.com/package/nodemon || development dependency:instal only for development
 /* ------------------------------------ / ----------------------------------- */
 
 const http = require('http');
@@ -6,8 +7,9 @@ const http = require('http');
 const routes = require('./routes');
 
 // const server = http.createServer(routes);
-const server = http.createServer(routes.handler);  //*  this version in cases having multi exports
+const server = http.createServer(routes.handler);  // *this version in cases having multi exports
 
 console.log(routes.someText);
+
 
 server.listen(3000);
