@@ -14,8 +14,8 @@ app.use('/add-product', (req, res, next) => {
 });
 
 app.post('/product', (req, res, next) => {
-    console.log(req.body);
-    res.redirect('/');
+    console.log(req.body);//getting what the user send usy 
+    res.redirect('/');//redirect using express
 });
 
 
