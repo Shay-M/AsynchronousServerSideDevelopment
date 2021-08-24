@@ -21,3 +21,5 @@ app.use((req, res, next) => {
 app.listen(3000);
 
 
+// 15. Serving HTML Pages
+
