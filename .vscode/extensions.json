@@ -5,6 +5,7 @@
         "yzhang.markdown-all-in-one",
         "eg2.vscode-npm-script",
         "quicktype.quicktype",
-        "zainchen.json"
+        "zainchen.json",
+        "expresssnippets.vscode-express-snippets"
     ]
 }
