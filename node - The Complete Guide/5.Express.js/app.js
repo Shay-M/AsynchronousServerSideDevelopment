@@ -8,16 +8,15 @@ const app = express();
 app.use(express.urlencoded({ extended: false })); //Parse URL-encoded bodies
 // app.use(express.json()); //?Used to parse JSON bodies
 
+
 app.use('/add-product', (req, res, next) => {
     res.send('<form action="/product" method="POST"><input type="text" name="title"><button type="submit">Add Product</button></form>');
-    res.send('<from></from>')
 });
 
-app.post('/product', (req, res, next) => {
+app.post('/product', (req, res, next) => { //using post only
     console.log(req.body);//getting what the user send usy 
     res.redirect('/');//redirect using express
 });
-
 
 app.use('/', (req, res, next) => {
     res.send('<h1>Hello from Express!</h1>');
