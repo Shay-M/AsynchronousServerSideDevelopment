@@ -1,0 +1,33 @@
+body {
+  background-color: #5b40d4;
+  color: brown;
+  font-family: "Lucida Console", Courier, monospace;
+  font-weight: 300 !important;
+}
+
+h2 {
+  color: burlywood;
+}
+
+body h1 {
+  color: rgb(17, 17, 31);
+  font-weight: 300; /*!not support */
+  text-align: center;
+  letter-spacing: 10px;
+}
+
+body > header > h3 {
+  background: aqua;
+  color: black;
+}
+
+#main-header {
+  border: 5px double azure;
+}
+
+h1,
+h3 {
+  margin: 20px;
+  /*
+  float: left;*/
+}
