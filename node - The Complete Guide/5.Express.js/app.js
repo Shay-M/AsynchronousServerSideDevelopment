@@ -13,6 +13,8 @@ const shopRouts = require('./routes/shop');
 app.use(express.urlencoded({ extended: false })); //Parse URL-encoded bodies
 //// app.use(express.json()); //?Used to parse JSON bodies
 
+app.use(express.static(path.join(__dirname, 'public'))); // for serving static files(css,image ...), need make 'public' folder public
+
 app.use('/admin', adminRouts);
 
 app.use(shopRouts);
