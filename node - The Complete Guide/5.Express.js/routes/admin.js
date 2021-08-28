@@ -15,7 +15,7 @@ router.get('/add-product', (req, res, next) => {
 });
 
 router.post('/add-product', (req, res, next) => { //using post only
-    console.log(req.body); //getting what the user send usy 
+    console.log(req.body); //getting what the user send 
     res.redirect('/'); //redirect using express
 });
 
