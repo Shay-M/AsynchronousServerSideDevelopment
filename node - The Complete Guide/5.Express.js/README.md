@@ -2,6 +2,8 @@
 
 https://expressjs.com/en/resources/template-engines.html
 
+**ejs replaces! the HTML can deleted I save them for leaning **
+
 ejs not have layout > using partials or includes > include folder share
 
 ```ejs

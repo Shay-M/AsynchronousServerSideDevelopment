@@ -12,8 +12,17 @@ const products = []; // Array of products
 router.get('/add-product', (req, res, next) => {
     //// res.send('<form action="/admin/add-product" method="POST"><input type="text" name="title"><button type="submit">Add Product</button></form>');
     // use util ////res.sendFile(path.join(__dirname, '..', 'views', 'add-product.html')); // __dirname: host the use folder (routes) || '..' need to go up the directory
-    res.sendFile(path.join(rootDir, 'views', 'add-product.html')); // __dirname: host the use folder (routes) || '..' need to go up the directory
+    //res.sendFile(path.join(rootDir, 'views', 'add-product.html')); // __dirname: host the use folder (routes) || '..' need to go up the directory
+    //! all above this is static, below is dynamic//
+    //use the default template engine
 
+    res.render('add-product', {
+        pageTitle: 'Add Product',
+        path: '/admin/add-product',
+        formsCSS: true,
+        productCSS: true,
+        activeAddProduct: true
+    });
 });
 
 router.post('/add-product', (req, res, next) => { //using post only
