@@ -14,16 +14,17 @@ app.use(express.urlencoded({ extended: false })); //Parse URL-encoded bodies
 //// app.use(express.json()); //?Used to parse JSON bodies
 
 app.use('/admin', adminRouts);
+
 app.use(shopRouts);
 
+/* if adminRouts or shopRouts not catch, show an error page */
 app.use((req, res, next) => {
-    ////res.status(404).send('<h1>Page not found</h1>'); // status(404) for 404 error messages
+    //res.status(404).send('<h1>Page not found</h1>'); // status(404) for 404 error messages
     res.sendFile(path.join(__dirname, 'views', '404.html'));
 });
 
 app.listen(3000);
 
-//19. Styling our Pages
 
 
 
