@@ -1,4 +1,4 @@
-const products = []; // Array of products
+const Product = require('../models/product');
 
 exports.getAddProductPage = (req, res, next) => {
     //// res.send('<form action="/admin/add-product" method="POST"><input type="text" name="title"><button type="submit">Add Product</button></form>');
@@ -20,7 +20,9 @@ exports.getAddProductPage = (req, res, next) => {
 
 exports.postAddProduct = (req, res, next) => { //using post only
     console.log(req.body); //getting what the user send
-    products.push({ title: req.body.title });
+    //products.push({ title: req.body.title }); // move to model
+    const product = new Product(req.body.title);
+    product.save();
     res.redirect('/'); //redirect using express
 }
 
@@ -32,7 +34,8 @@ exports.getProducts = (req, res, next) => {
     // res.sendFile(path.join(rootDir, 'views', 'shop.html'));// __dirname: host the use folder (routes) 
     //! all above this is static, below is dynamic//
     //use the default template engine
-    // const products = adminData.products;//we move to controllers
+    // const products = adminData.products;//we move to model
+    const products = Product.fetchAll();
     res.render('shop', {
         prods: products,
         pageTitle: 'Shop',
