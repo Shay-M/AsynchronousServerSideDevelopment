@@ -4,6 +4,8 @@ const path = require('path');
 
 //const bodyParser = require('body-parser'); //npm install --save body-parser //! 'bodyParser' is deprecated.
 
+const errorController = require('./controllers/error');
+
 const app = express();
 
 /* adding EJS Tempesting Engines (like 'PUG' 'HANDLEBARS')*/
@@ -27,11 +29,7 @@ app.use('/admin', adminRouts);
 app.use(shopRouts);
 
 /* if adminRouts or shopRouts not catch, show an error page */
-app.use((req, res, next) => {
-    //res.status(404).send('<h1>Page not found</h1>'); // status(404) for 404 error messages
-    // res.sendFile(path.join(__dirname, 'views', '404.html')); // send html file error
-    res.status(404).render('404', { pageTitle: 'Page Not Found' });
-}); s
+app.use(errorController.get404Page);
 
 app.listen(3000);
 
