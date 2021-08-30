@@ -26,7 +26,6 @@ exports.postAddProduct = (req, res, next) => { //using post only
     res.redirect('/'); //redirect using express
 }
 
-
 exports.getProducts = (req, res, next) => {
     //// res.send('<h1>Hello from Express!</h1>'); // old
     // res.sendFile('/views/shop.html');//!error not working + different OP window '\' mac '/'
@@ -35,16 +34,16 @@ exports.getProducts = (req, res, next) => {
     //! all above this is static, below is dynamic//
     //use the default template engine
     // const products = adminData.products;//we move to model
-    const products = Product.fetchAll();
-    res.render('shop', {
-        prods: products,
-        pageTitle: 'Shop',
-        path: '/',
-        hasProducts: products.length > 0,
-        activeShop: true,
-        productCSS: true
+    const products = Product.fetchAll((products) => {
+        res.render('shop', {
+            prods: products,
+            pageTitle: 'Shop',
+            path: '/',
+            hasProducts: products.length > 0,
+            activeShop: true,
+            productCSS: true
+        });
     });
-
 }
 
 

@@ -11,7 +11,7 @@ module.exports = class Product {
     save() {
         //products.push(this);
         const pathOfJsonProduct = path.join(
-            path.dirname(process.main.filename),
+            path.dirname(process.mainModule.filename),
             'data', //folder
             'products.json' // creat a products file in rootDir / data folder path 
         );
@@ -27,8 +27,35 @@ module.exports = class Product {
         });
     }
 
+    /* //! this isn't good be
     static fetchAll() {
-        return ['products'];
+        const p = path.join(
+            path.dirname(process.main.filename),
+            'data',
+            'products.json'
+        );
+        fs.readFile(p, (err, fileContent) => { //! Asynchronously code
+            if (err) {
+                return []; // ! readFile return not fetchAll!
+            }
+            return JSON.parse(fileContent)
+        });
+    } //! fix this using callBack */
+
+
+
+    static fetchAll(callBack) {
+        const p = path.join(
+            path.dirname(process.mainModule.filename),
+            'data',
+            'products.json'
+        );
+        fs.readFile(p, (err, fileContent) => {
+            if (err) {
+                callBack([]);
+            }
+            callBack(JSON.parse(fileContent));// JSON.parse convert text json to array
+        });
     }
 
 }
