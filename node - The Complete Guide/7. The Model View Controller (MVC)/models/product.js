@@ -11,7 +11,7 @@ module.exports = class Product {
     save() {
         //products.push(this);
         const pathOfJsonProduct = path.join(
-            path.dirname(process.mainModule.filename),
+            path.dirname(require.main.filename),
             'data', //folder
             'products.json' // creat a products file in rootDir / data folder path 
         );
@@ -44,9 +44,9 @@ module.exports = class Product {
 
 
 
-    static fetchAll(callBack) {
+    static fetchAll(callBack) { // callBack from models products
         const p = path.join(
-            path.dirname(process.mainModule.filename),
+            path.dirname(require.main.filename),
             'data',
             'products.json'
         );
