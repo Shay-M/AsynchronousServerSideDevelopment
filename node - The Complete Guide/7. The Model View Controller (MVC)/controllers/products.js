@@ -8,7 +8,7 @@ exports.getAddProductPage = (req, res, next) => {
     /* render a template with the special render method provided by
     express js, that render method will always look for the registered view engine.
     [in app.js > app.set('view engine', 'ejs');] */
-    res.render('add-product', { // name of the path to the view add-product.ejs
+    res.render('admin/add-product', { // name of the path to the view add-product.ejs
         pageTitle: 'Add Product',
         path: '/admin/add-product', // so that the view can find out what is the path for which this was loaded. [for \views\includes\navigation.ejs | not must this name]
         formsCSS: true,
@@ -35,7 +35,7 @@ exports.getProducts = (req, res, next) => {
     //use the default template engine
     // const products = adminData.products;//we move to model
     const products = Product.fetchAll((products) => {
-        res.render('shop', {
+        res.render('shop/product-list', {
             prods: products,
             pageTitle: 'Shop',
             path: '/',

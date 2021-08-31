@@ -34,4 +34,4 @@ app.use(errorController.get404Page);
 app.listen(3000);
 
 
-//6. Storing Data in Files Via the Model
+//2. Creating the Shop Structure
