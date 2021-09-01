@@ -3,13 +3,15 @@ const express = require('express');
 const path = require('path');
 
 ////const rootDir = require('../util/path');
-const productsController = require('../controllers/products');
+const adminController = require('../controllers/admin');
 const router = express.Router();
 
 
-router.get('/add-product', productsController.getAddProductPage);
+router.get('/add-product', adminController.getAddProductPage);
 
-router.post('/add-product', productsController.postAddProduct);
+router.get('/products', adminController.getProducts);
+
+router.post('/add-product', adminController.postAddProduct);
 
 // module.exports = router; 
 // we change this for export array of products

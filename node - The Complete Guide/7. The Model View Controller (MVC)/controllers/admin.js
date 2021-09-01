@@ -24,27 +24,15 @@ exports.postAddProduct = (req, res, next) => { //using post only
     const product = new Product(req.body.title);
     product.save();
     res.redirect('/'); //redirect using express
-}
+};
 
 exports.getProducts = (req, res, next) => {
-    //// res.send('<h1>Hello from Express!</h1>'); // old
-    // res.sendFile('/views/shop.html');//!error not working + different OP window '\' mac '/'
-    // use utils //res.sendFile(path.join(__dirname, '..', 'views', 'shop.html'));// __dirname: host the use folder (routes) || '..' need to go up the directory
-    // res.sendFile(path.join(rootDir, 'views', 'shop.html'));// __dirname: host the use folder (routes) 
-    //! all above this is static, below is dynamic//
-    //use the default template engine
-    // const products = adminData.products;//we move to model
-    const products = Product.fetchAll((products) => {
-        res.render('shop/product-list', {
+    Product.fetchAll((products) => {
+        res.render('admin/products', {
             prods: products,
-            pageTitle: 'Shop',
-            path: '/',
-            hasProducts: products.length > 0,
-            activeShop: true,
-            productCSS: true
+            pageTitle: 'Admin Products',
+            path: '/admin/products',
+
         });
     });
-}
-
-
-
+};
