@@ -34,4 +34,4 @@ app.use(errorController.get404Page);
 app.listen(3000);
 
 
-//2. Creating the Shop Structure
+// 9. Dynamic Routes & Advanced Models
