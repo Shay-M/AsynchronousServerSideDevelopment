@@ -1,0 +1,19 @@
+Logic Question
+Passing the River Five people come to a river at night. There is a narrow bridge,
+but it can only hold two people at a time. They have one torch and, because it's
+night, the torch must be used when crossing the bridge. 
+Person A can cross the bridge in one minute, B in 2 minutes, C in 5 minutes, D in 8 minutes and E in 12
+minutes. When two people cross the bridge together, they move at the slower
+person's pace. What is the minimum total time needed for the group to cross?
+
+
+AB>2
+A<1
+DE>12
+B<2
+C>5
+A<1
+AB>2
+
+total 25
+
