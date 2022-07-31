@@ -41,6 +41,7 @@ values we want to passover to the function we call. */
 function sum(numX, numY) {
     return numX + numY;
 }
+
 function total(numX, numY, numQ, numW) {
     return sum.apply(this, [numX, numY])
         + sum.apply(this, [numQ, numW]);
@@ -76,16 +77,18 @@ alert(total(1, 2, 3, 4)); //10
 /* -------------------------------------------------------------------------- */
 /*                      Array into Consecutive Arguments                      */
 /* -------------------------------------------------------------------------- */
+
 function sum(a, b, c) {
     let result = a + b + c;
     return result;
 }
 let numbers = [12, 42, 30];
-document.write("sum of all nubmers is " + sum(...numbers));
+document.write("sum of all numbers is " + sum(...numbers));
 
 /* -------------------------------------------------------------------------- */
 /*                         Parameters Binding to Array                        */
 /* -------------------------------------------------------------------------- */
+
 function calculateTax(rate, ...incomes) {
     let total = 0;
     for (let i = 0; i < incomes.length; i++) {
@@ -139,8 +142,3 @@ var get_functions = function () {
 };
 var vector = get_functions();
 alert((vector[0]() + vector[1]() + vector[2]() + vector[3]())); //! 40 + 40 + 40 + 40 = 160
-
-
-
-
-
