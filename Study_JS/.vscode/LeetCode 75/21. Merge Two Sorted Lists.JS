@@ -8,22 +8,52 @@ Return the head of the merged linked list. */
 function ListNode(val, next) {
   this.val = val === undefined ? 0 : val;
   this.next = next === undefined ? null : next;
+  ListNode.prototype.toString = function listNodeToString() {
+    return `${this.val} ${this.next}`;
+  };
 }
 
 var mergeTwoLists = function (list1, list2) {
-  let index1 = list1,
-    index2 = list2,
-    tempList1;
+  let tempList1 = new ListNode();
+  let pointList = tempList1;
 
-  while (index1 != null && index2 != null) {
-    if (index1.val >= index2.val) {
-      tempList1 = list1;
-      list1.next = list2;
-      list2.next = tempList1;
+  while (list1 != null || list2 != null) {
+    if (list1 != null && list2 != null) {
+      if (list1.val <= list2.val) {
+        tempList1.next = list1;
+        tempList1 = tempList1.next;
+
+        list1 = list1.next;
+      } else {
+        //index1.val > index2.val
+        tempList1.next = list2;
+        tempList1 = tempList1.next;
+
+        list2 = list2.next;
+      }
+    } else if (list1 == null) {
+      tempList1.next = list2;
+      break;
+    } else {
+      tempList1.next = list1;
+      break;
     }
+  }
+  return pointList.next;
+};
 
-    index1 = index1.next;
-    index2 = index2.next;
+////////////////////////////////////////////////////////////////
+
+var mergeTwoLists2 = function (l1, l2) {
+  if (l1 == null) return l2;
+  if (l2 == null) return l1;
+
+  if (l1.val < l2.val) {
+    l1.next = mergeTwoLists2(l1.next, l2);
+    return l1;
+  } else {
+    l2.next = mergeTwoLists2(l1, l2.next);
+    return l2;
   }
 };
 
@@ -35,4 +65,4 @@ ListNode33 = new ListNode(4, null);
 ListNode22 = new ListNode(3, ListNode33);
 ListNode11 = new ListNode(1, ListNode22);
 
-console.log(mergeTwoLists(ListNode1, ListNode11));
+console.log(mergeTwoLists2(ListNode1, ListNode11).toString());
