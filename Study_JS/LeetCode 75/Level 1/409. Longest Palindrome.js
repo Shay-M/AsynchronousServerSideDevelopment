@@ -12,28 +12,18 @@
  * @return {number}
  */
 var longestPalindrome = function (s) {
-  let count = 1;
-  let n = 0;
-  let oodFlag = 0;
+  let count = 0;
+  let charMap = {};
 
-  let tempArray = [];
-
-  for (let i = 0; i < s.length; i++) {
-    for (let j = i + 1; j < s.length; j++)
-      if (s[i] === s[j]) {
-        count++;
-      }
-
-    if (count % 2 !== 0 && oodFlag < count) oodFlag = count;
-    else n += count;
-
-    console.log('count: ' + count);
-    console.log('oodFlag: ' + oodFlag);
-
-    count = 1;
+  for (const char of s) {
+    if (charMap[char]) charMap[char]++;
+    else charMap[char] = 1;
+    if (charMap[char] % 2 === 0) count += 2;
   }
-
-  return n + oodFlag;
+  //   If count is less than given string's length, it means there should be some extra characters pending from which we can take 1 character to make our final string as odd palindrome.
+  //   If count and given string's length are same, it means we have taken every character from the given string and have formed an even palindrome string.
+  count += count < s.length ? 1 : 0;
+  return count;
 };
 
 let s = 'abccccdd';
