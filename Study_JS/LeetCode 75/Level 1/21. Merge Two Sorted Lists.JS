@@ -3,15 +3,21 @@ Merge the two lists in a one sorted list. The list should be made by
  splicing together the nodes of the first two lists.
 Return the head of the merged linked list. */
 
+/* Input: list1 = [1,2,4], list2 = [1,3,4]
+Output: [1,1,2,3,4,4] */
+
 // https://leetcode.com/problems/merge-two-sorted-lists/
 
 function ListNode(val, next) {
   this.val = val === undefined ? 0 : val;
   this.next = next === undefined ? null : next;
+
   ListNode.prototype.toString = function listNodeToString() {
     return `${this.val} ${this.next}`;
   };
 }
+
+//----------------------------------------------------------------
 
 var mergeTwoLists = function (list1, list2) {
   let tempList1 = new ListNode();
@@ -25,7 +31,6 @@ var mergeTwoLists = function (list1, list2) {
 
         list1 = list1.next;
       } else {
-        //index1.val > index2.val
         tempList1.next = list2;
         tempList1 = tempList1.next;
 
@@ -43,7 +48,7 @@ var mergeTwoLists = function (list1, list2) {
 };
 
 ////////////////////////////////////////////////////////////////
-
+// רקורסיה
 var mergeTwoLists2 = function (l1, l2) {
   if (l1 == null) return l2;
   if (l2 == null) return l1;

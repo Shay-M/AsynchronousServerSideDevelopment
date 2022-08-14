@@ -1,4 +1,6 @@
-// Given the head of a singly linked list, reverse the list, and return the reversed list.
+/* Given the head of a singly linked list, reverse the list, and return the reversed list.
+Input: head = [1,2,3,4,5]
+Output: [5,4,3,2,1] */
 
 // https://leetcode.com/problems/reverse-linked-list/
 
@@ -10,6 +12,7 @@ function ListNode(val, next) {
     return `${this.val} -> ${this.next}`;
   };
 }
+// ----------------------------------------------------------------
 
 var reverseList = function (head) {
   if (head === null) return 'null';
@@ -38,6 +41,7 @@ console.log(ListNode1.toString());
 
 console.log(reverseList(ListNode1).toString());
 
+// ////////////////////////
 var reverseListRecursive = function (head) {
   if (head === null) return null;
   if (head.next === null) return head;

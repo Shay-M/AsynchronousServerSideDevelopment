@@ -4,6 +4,14 @@ deleting some (can be none) of the characters without disturbing the relative po
 of the remaining characters. (i.e., "ace" is a subsequence of "abcde" while "aec" is not).
 */
 
+/* Input: s = "abc", t = "ahbgdc"
+Output: true
+
+Input: s = "axc", t = "ahbgdc"
+Output: false */
+
+// https://leetcode.com/problems/is-subsequence/
+
 let isSubsequence = function (s, t) {
   let i = 0;
 
