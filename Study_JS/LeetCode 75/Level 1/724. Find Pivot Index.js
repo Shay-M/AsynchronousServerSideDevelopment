@@ -23,6 +23,7 @@ var pivotIndex = function (nums) {
     totalSum -= nums[i];
 
     if (leftSum == totalSum) return i;
+
     leftSum += nums[i];
   }
   return -1;
