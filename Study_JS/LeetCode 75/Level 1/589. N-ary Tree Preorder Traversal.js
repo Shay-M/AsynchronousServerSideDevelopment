@@ -24,16 +24,19 @@ var preorder = function (root) {
 };
 
 function printPreorder(node, ans) {
-  if (node == null) return;
+  if (node === null) return;
 
   ans.push(node.val);
-  console.log(node.val);
 
-  printPreorder(node.children);
-
-  //   printPreorder(node.right);
+  if (node.children !== null)
+    node.children.forEach((element) => printPreorder(element, ans));
 }
 
-root = [1, null, 3, 2, 4, null, 5, 6];
+ListNode6 = new Node(6, null);
+ListNode5 = new Node(5, null);
+ListNode4 = new Node(4, null);
+ListNode3 = new Node(3, [ListNode5, ListNode6]);
+ListNode2 = new Node(2, null);
+ListNode1 = new Node(1, [ListNode3, ListNode2, ListNode4]);
 
-console.log(preorder(root));
+console.log(preorder(ListNode1));
