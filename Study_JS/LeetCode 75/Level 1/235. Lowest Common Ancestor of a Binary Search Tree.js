@@ -19,10 +19,40 @@ Explanation: The LCA of nodes 2 and 8 is 6. */
  * }
  */
 
+function TreeNode(val, left, right) {
+  this.val = val === undefined ? 0 : val;
+  this.left = left === undefined ? null : left;
+  this.right = right === undefined ? null : right;
+}
+
 /**
  * @param {TreeNode} root
  * @param {TreeNode} p
  * @param {TreeNode} q
  * @return {TreeNode}
  */
-var lowestCommonAncestor = function (root, p, q) {};
+var lowestCommonAncestor = function (root, p, q) {
+  let node = root;
+
+  while (node !== null) {
+    if (p.val > node.val && q.val > node.val) node = node.right;
+    else if (p.val < node.val && q.val < node.val) node = node.left;
+    else return node;
+  }
+};
+
+ListNode9 = new TreeNode(9, null, null);
+ListNode7 = new TreeNode(7, null, null);
+ListNode8 = new TreeNode(6, ListNode7, ListNode9);
+
+ListNode5 = new TreeNode(5, null, null);
+ListNode3 = new TreeNode(3, null, null);
+
+ListNode4 = new TreeNode(4, ListNode3, ListNode5);
+ListNode0 = new TreeNode(0, null, null);
+
+ListNode2 = new TreeNode(2, ListNode0, ListNode4);
+
+ListNode6 = new TreeNode(6, ListNode2, ListNode8);
+
+console.log(lowestCommonAncestor(ListNode6, 2, 8).val); // Output: 6
